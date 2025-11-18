@@ -14,11 +14,10 @@ def ensure_file():
 @mcp.tool()
 def read_resume() -> str:
     """
-    Read and return all notes from the sticky note file.
+    Read and return the resume file.
 
     Returns:
-        str: All notes as a single string separated by line breaks.
-             If no notes exist, a default message is returned.
+        str: Resume contents from the MD file
     """
     ensure_file()
     with open(resume, "r") as f:
@@ -28,10 +27,11 @@ def read_resume() -> str:
 @mcp.prompt()
 def job_app_answer_prompt() -> str:
     """
-    Generate a prompt asking the AI to answer the questions copied taking relevant context from the resume. Anything asked out of context of this job application and resume should return as "this is out of context"
+    Generate a prompt that asks the AI to answer the copied questions, using relevant context from the resume. 
+    Anything asked outside the context of this job application and resume should be returned as "this is out of context."
 
     Returns:
-        str: A prompt string that takes resume reference and asks to answer the copy pasted job application questions.
+        str: A prompt string that takes a resume reference and asks to answer the copied-and-pasted job application questions.
             If no resume exists, a message will be shown indicating that.
     """
     ensure_file()
@@ -40,7 +40,11 @@ def job_app_answer_prompt() -> str:
     if not content:
         return "There is no resume yet."
 
-    return f"Considering the resume {content} and assuming the role of this person who has this professional experience, answer the following job application questions without em-dashes, robotic language. Answer in a human way which will go undetected through AI detectors. Everything should sound genuine and have a personal touch such that if feels very well though out and researched for every company and role for which these answers are requested. Always answer in 3-4 sentences with simple words which are not hard to understand. The answer should potray clarity, confidence and vision. If anything is asked out of context of job application and the resume, you should say this is out of scope of the mcp tool."
+    return f"Considering the resume {content} and assuming the role of this person who has this professional experience, answer the following job application questions without em-dashes, robotic language. 
+            Answer in a human way, which will go undetected by AI detectors. 
+            Everything should sound genuine and have a personal touch, such that it feels very well thought out and researched for every company and role for which these answers are requested. 
+            Always answer in 3-4 sentences with simple words that are not hard to understand. The answer should portray clarity, confidence, and vision. 
+            If anything is asked out of context of the job application and the resume, you should say this is out of scope of the MCP tool."
 
 
 
