@@ -1,5 +1,6 @@
 
 🌟 Brief Description
+
 The MCP Resume Tool is a simple utility that leverages Multi-Context Processing (MCP) to answer job application questions.
 
 It works by loading your resume (usually a PDF or similar document) as the central context for a Large Language Model (LLM). This allows the LLM to generate highly relevant, personalized answers to common application prompts using the specific details from your professional history.
@@ -53,5 +54,6 @@ Bash
 
 python main.py
 The script will prompt you to enter the path to your resume and the job application question you want the LLM to answer.
+
 
 
