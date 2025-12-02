@@ -57,7 +57,9 @@ You will need the following installed:
     # Example (replace LLM_API_KEY with the variable name required by main.py)
     export LLM_API_KEY="YOUR_API_KEY_HERE"
     ```
-
+5. **Add Resume file in markdown format in the project directory**
+   For Privacy, remove identification information like Name, email ID, phone number, etc. from the resume and add the rest as a markdown file [resume.md] in project directory.
+   
 ### 3. Run the Tool
 
 1.  Make sure your resume file (e.g., `my_resume.pdf`) is ready.
@@ -67,3 +69,4 @@ You will need the following installed:
     python main.py
     ```
 3.  The script will prompt you to enter the path to your resume and the job application question you want the LLM to answer.
+
